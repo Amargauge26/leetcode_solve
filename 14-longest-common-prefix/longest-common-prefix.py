@@ -1,19 +1,21 @@
-class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
-        hash_map = {}
-
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        hash={}
         for char in strs:
             n = len(char)
             for i in range(n):
-                prefix = char[:i+1]
-                if prefix in hash_map:
-                    hash_map[prefix] += 1
+                if char[:i+1] in hash:
+                    hash[char[:i+1]]+=1
+                
                 else:
-                    hash_map[prefix] = 1
-        
-        max_prefix = ""
-        for prefix, count in hash_map.items():
-            if count == len(strs) and len(prefix) > len(max_prefix):
-                max_prefix = prefix
-        
-        return max_prefix
+                    hash[char[:i+1]]=1
+        maxx=''
+        for s,count in hash.items():
+            if count==len(strs) and len(maxx)<len(s):
+                maxx=s
+
+        return maxx 
