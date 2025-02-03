@@ -18,7 +18,7 @@ class Solution(object):
                 if hash[s[i]]!=t[i]:
                     return False
                 
-                else:
-                    hash[s[i]]=t[i]
+                """else:
+                    hash[s[i]]=t[i]"""
         
         return True
