@@ -1,28 +1,21 @@
-class Solution(object):
-    def frequencySort(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-        ans = ''
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        ans = ""
 
-        f = {}
+        f ={}
 
-        n = len(s)
-
-        for i in range(n):
-            if s[i] in f:
-                f[s[i]]+=1
+        for char in s:
+            if char in f:
+                f[char]+=1
             
             else:
-                f[s[i]]=1
-        
-        ss = sorted(f.items(),key = lambda x:(-x[1],x[0]))
+                f[char]=1
 
-        for k,v in ss:
-                ans+=k*v
-        
+
+
+        LL = sorted(f.items(),key=lambda x:(-x[1],x[0]))
+
+        for k,v in LL:
+            ans+=k*v
 
         return ans
-
-
